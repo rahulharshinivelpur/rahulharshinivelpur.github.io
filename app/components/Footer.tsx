@@ -120,7 +120,6 @@ export default function Footer() {
           className="mt-14 flex flex-wrap justify-center gap-6"
         >
           {[
-            { label: "Our Story", href: "#story" },
             { label: "Events", href: "#events" },
             { label: "RSVP", href: "#rsvp" },
             { label: "Venue", href: "#venue" },

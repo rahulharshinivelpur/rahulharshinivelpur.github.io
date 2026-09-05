@@ -1,7 +1,6 @@
 import GlobalNav from "./components/GlobalNav";
 import HeroSection from "./components/HeroSection";
 import CountdownSection from "./components/CountdownSection";
-import OurStorySection from "./components/OurStorySection";
 import EventsSection from "./components/EventsSection";
 import VenueSection from "./components/VenueSection";
 import TravelSection from "./components/TravelSection";
@@ -16,7 +15,6 @@ export default function Home() {
       <GlobalNav />
       <HeroSection />
       <CountdownSection />
-      <OurStorySection />
       <EventsSection />
       <VenueSection />
       <TravelSection />
