@@ -101,7 +101,7 @@ export default function Footer() {
             className="italic text-xl"
             style={{ color: "#E8D5A3", fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
           >
-            Rahul &amp; Harshu
+            Harshini &amp; Rahul
           </p>
           <p
             className="mt-2 italic"

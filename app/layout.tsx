@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Rahul ♾ Harshu — November 2026 · Texas",
-  description: "Join us as we celebrate the beginning of forever. Mehendi · Haldi · Wedding · Sangeeth — November 2026, Texas.",
+  title: "Harshini ♾ Rahul — November 2026 · Texas",
+  description: "Join us as we celebrate the beginning of forever. Sangeeth · Engagement · Mehendi · Haldi · Wedding — November 12–15, 2026, Texas.",
   openGraph: {
-    title: "Rahul ♾ Harshu — November 2026 · Texas",
+    title: "Harshini ♾ Rahul — November 2026 · Texas",
     description: "You are invited to our wedding celebration.",
     type: "website",
   },

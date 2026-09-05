@@ -244,7 +244,7 @@ export default function InvitationHero() {
           joyfully invite you to celebrate
         </motion.p>
 
-        {/* Rahul name */}
+        {/* Harshini name */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : 20 }}
@@ -259,7 +259,7 @@ export default function InvitationHero() {
             textShadow: "0 2px 8px rgba(184,134,11,0.2)",
           }}
         >
-          Rahul
+          Harshini
         </motion.h1>
 
         {/* Weds */}
@@ -282,7 +282,7 @@ export default function InvitationHero() {
           <div style={{ height: "1px", width: "40px", background: "linear-gradient(90deg, #B8860B, transparent)" }} />
         </motion.div>
 
-        {/* Harshini name */}
+        {/* Rahul name */}
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: revealed ? 1 : 0, y: revealed ? 0 : -20 }}
@@ -297,7 +297,7 @@ export default function InvitationHero() {
             textShadow: "0 2px 8px rgba(184,134,11,0.2)",
           }}
         >
-          Harshini
+          Rahul
         </motion.h1>
 
         {/* Lotus ornament */}

@@ -155,7 +155,7 @@ export default function HeroSection() {
                 letterSpacing: "0.05em",
               }}
             >
-              Rahul
+              Harshini
             </h1>
             <div className="my-2 text-4xl" style={{ color: "#C9A84C" }}>♾</div>
             <h1
@@ -167,7 +167,7 @@ export default function HeroSection() {
                 letterSpacing: "0.05em",
               }}
             >
-              Harshu
+              Rahul
             </h1>
           </motion.div>
         )}
