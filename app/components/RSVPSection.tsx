@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface GuestEntry {
   name: string;
+  sangeeth: boolean;
+  engagement: boolean;
   mehendi: boolean;
   haldi: boolean;
   wedding: boolean;
-  sangeeth: boolean;
 }
 
 interface FormData {
@@ -23,17 +24,19 @@ interface FormData {
 
 const defaultGuest = (): GuestEntry => ({
   name: "",
+  sangeeth: true,
+  engagement: true,
   mehendi: true,
   haldi: true,
   wedding: true,
-  sangeeth: true,
 });
 
 const events = [
+  { key: "sangeeth" as const, label: "Sangeeth", emoji: "✨", color: "#D4AF37" },
+  { key: "engagement" as const, label: "Engagement", emoji: "💍", color: "#E879F9" },
   { key: "mehendi" as const, label: "Mehendi", emoji: "🌿", color: "#2D9148" },
   { key: "haldi" as const, label: "Haldi", emoji: "☀️", color: "#E65100" },
   { key: "wedding" as const, label: "Wedding", emoji: "🪷", color: "#C9A84C" },
-  { key: "sangeeth" as const, label: "Sangeeth", emoji: "✨", color: "#D4AF37" },
 ];
 
 type SubmitState = "idle" | "submitting" | "success" | "error";

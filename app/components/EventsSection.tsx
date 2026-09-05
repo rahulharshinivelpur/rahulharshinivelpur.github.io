@@ -22,15 +22,60 @@ interface Event {
 
 const events: Event[] = [
   {
+    id: "sangeeth",
+    emoji: "✨",
+    name: "SANGEETH",
+    subtitle: "Dance · Music · Celebration",
+    date: "Thursday, November 12, 2026",
+    time: "Evening",
+    venue: "TBD, Texas",
+    description:
+      "Kick off the wedding week with the biggest party night. Family dance-offs, musical performances, and an evening that will be talked about for years. Come ready to dance.",
+    dress: "Festive Indian wear · Black, navy, or champagne gold preferred",
+    details: [
+      "Family & friends dance performances",
+      "Live music",
+      "Dinner & late night snacks",
+      "Open bar",
+      "DJ till late",
+    ],
+    bg: "linear-gradient(135deg, #020014 0%, #0D0D2B 40%, #1A1040 100%)",
+    accent: "#D4AF37",
+    accentLight: "rgba(212,175,55,0.12)",
+    textColor: "#E8E0F8",
+  },
+  {
+    id: "engagement",
+    emoji: "💍",
+    name: "ENGAGEMENT",
+    subtitle: "Rings · Blessings · Celebration",
+    date: "Friday, November 13, 2026",
+    time: "Noon",
+    venue: "TBD, Texas",
+    description:
+      "The official exchange of rings as both families come together to bless Rahul and Harshu. A beautiful afternoon ceremony followed by lunch and celebration.",
+    dress: "Semi-formal Indian wear · Bright, festive colours welcome",
+    details: [
+      "Ring exchange ceremony",
+      "Family blessings",
+      "Lunch served",
+      "Photos with family",
+    ],
+    bg: "linear-gradient(135deg, #1A0A2E 0%, #2D1B69 40%, #4C1D95 100%)",
+    accent: "#E879F9",
+    accentLight: "rgba(232,121,249,0.12)",
+    textColor: "#F5E6FF",
+  },
+  {
     id: "mehendi",
     emoji: "🌿",
     name: "MEHENDI",
     subtitle: "Music · Henna · Cocktails",
     date: "Friday, November 13, 2026",
-    time: "5:00 PM – 9:00 PM",
+    time: "Night",
     venue: "TBD, Texas",
     description:
-      "An evening of intricate henna, joyful music, and cocktails as we welcome the celebrations. Watch the artists weave beautiful stories on hands that are about to hold each other forever.",
+      "An evening of intricate henna, joyful music, and cocktails as the celebrations continue. Watch the artists weave beautiful stories on hands that are about to hold each other forever.",
     dress: "Semi-formal · Parrot Green, Pink, or Yellow encouraged",
     details: [
       "Henna artists available all evening",
@@ -49,15 +94,15 @@ const events: Event[] = [
     name: "HALDI",
     subtitle: "Turmeric · Traditions · Sunshine",
     date: "Saturday, November 14, 2026",
-    time: "10:00 AM – 1:00 PM",
+    time: "Noon",
     venue: "TBD, Texas",
     description:
-      "A vibrant, turmeric-filled morning ritual blessing the couple with prosperity and love. Get ready to get colorful — this is the most joyful celebration you'll ever be part of.",
+      "A vibrant, turmeric-filled afternoon ritual blessing the couple with prosperity and love. Get ready to get colorful — this is the most joyful celebration you'll ever be part of.",
     dress: "Casual · Bright yellows & oranges preferred (wear clothes you don't mind getting yellow!)",
     details: [
       "Traditional Haldi ceremony",
       "Family blessings ritual",
-      "Brunch served",
+      "Lunch served",
       "Outdoor celebration (weather permitting)",
     ],
     bg: "linear-gradient(135deg, #7C2D12 0%, #C2410C 40%, #EA580C 100%)",
@@ -70,45 +115,22 @@ const events: Event[] = [
     emoji: "🪷",
     name: "WEDDING",
     subtitle: "The Moment We Say 'I Do'",
-    date: "Saturday, November 14, 2026",
-    time: "4:00 PM – 9:00 PM",
+    date: "Sunday, November 15, 2026",
+    time: "Noon",
     venue: "TBD, Texas",
     description:
-      "The main event. In the presence of our families and God, Rahul and Harshu exchange vows and begin their forever. A traditional ceremony followed by a reception dinner.",
+      "The main event. In the presence of our families and God, Rahul and Harshu exchange vows and begin their forever. A traditional Telugu ceremony followed by a reception.",
     dress: "Formal Indian or Western attire · Ivory, gold, pastels welcome",
     details: [
       "Traditional Telugu wedding ceremony",
       "Baraat procession",
-      "Reception dinner & desserts",
-      "First dance & family dances",
+      "Reception lunch & desserts",
+      "Family celebrations",
     ],
     bg: "linear-gradient(135deg, #1A0A00 0%, #2C1810 40%, #3D2314 100%)",
     accent: "#C9A84C",
     accentLight: "rgba(201,168,76,0.12)",
     textColor: "#FAF6EE",
-  },
-  {
-    id: "sangeeth",
-    emoji: "✨",
-    name: "SANGEETH",
-    subtitle: "Dance · Music · Celebration",
-    date: "Sunday, November 15, 2026",
-    time: "6:00 PM – 11:00 PM",
-    venue: "TBD, Texas",
-    description:
-      "The night where everyone becomes a performer. Family dance-offs, musical performances, and an evening that will be talked about for years. Come ready to dance.",
-    dress: "Festive Indian wear · Black, navy, or champagne gold preferred",
-    details: [
-      "Family & friends dance performances",
-      "Live music",
-      "Dinner & late night snacks",
-      "Open bar",
-      "DJ till late",
-    ],
-    bg: "linear-gradient(135deg, #020014 0%, #0D0D2B 40%, #1A1040 100%)",
-    accent: "#D4AF37",
-    accentLight: "rgba(212,175,55,0.12)",
-    textColor: "#E8E0F8",
   },
 ];
 
@@ -133,7 +155,7 @@ export default function EventsSection() {
           className="tracking-[0.3em] text-xs mb-4"
           style={{ color: "#C9A84C", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
         >
-          4 CELEBRATIONS · 2 FAMILIES · 1 FOREVER
+          5 CELEBRATIONS · 2 FAMILIES · 1 FOREVER
         </p>
         <h2
           className="gold-text"

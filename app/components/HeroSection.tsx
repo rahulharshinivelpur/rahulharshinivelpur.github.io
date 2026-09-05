@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MandalaCorner, LotusDivider, DiyaIcon, MangalamSymbol } from "./TeluguGraphics";
 
 interface Particle {
   id: number;
@@ -18,7 +19,6 @@ export default function HeroSection() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    // Generate particles
     const generated: Particle[] = Array.from({ length: 40 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -29,16 +29,10 @@ export default function HeroSection() {
     }));
     setParticles(generated);
 
-    // Cinematic sequence
     const t1 = setTimeout(() => setPhase("particles"), 800);
     const t2 = setTimeout(() => setPhase("names"), 2200);
     const t3 = setTimeout(() => setPhase("full"), 4000);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
-    };
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   return (
@@ -49,209 +43,228 @@ export default function HeroSection() {
     >
       {/* Gold particles */}
       <AnimatePresence>
-        {phase !== "black" &&
-          particles.map((p) => (
-            <motion.div
-              key={p.id}
-              className="particle"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: p.opacity }}
-              style={{
-                left: `${p.x}%`,
-                width: p.size,
-                height: p.size,
-                background: `radial-gradient(circle, #E8D5A3, #C9A84C)`,
-                boxShadow: `0 0 ${p.size * 2}px rgba(201,168,76,0.6)`,
-                animation: `particle-drift ${p.duration}s ${p.delay}s linear infinite`,
-                bottom: -20,
-              }}
-            />
-          ))}
+        {phase !== "black" && particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="particle"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: p.opacity }}
+            style={{
+              left: `${p.x}%`,
+              width: p.size,
+              height: p.size,
+              background: `radial-gradient(circle, #E8D5A3, #C9A84C)`,
+              boxShadow: `0 0 ${p.size * 2}px rgba(201,168,76,0.6)`,
+              animation: `particle-drift ${p.duration}s ${p.delay}s linear infinite`,
+              bottom: -20,
+            }}
+          />
+        ))}
       </AnimatePresence>
 
       {/* Radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%)" }}
       />
 
-      {/* Ornamental top border */}
-      <AnimatePresence>
-        {phase === "full" && (
+      {/* Telugu mandala corners + diyas */}
+      {phase === "full" && (
+        <>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}
+            className="absolute top-0 left-0 pointer-events-none">
+            <MandalaCorner size={140} color="#C9A84C" opacity={0.3} />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1, duration: 1 }}
+            className="absolute top-0 right-0 pointer-events-none" style={{ transform: "scaleX(-1)" }}>
+            <MandalaCorner size={140} color="#C9A84C" opacity={0.3} />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }}
+            className="absolute bottom-0 left-0 pointer-events-none" style={{ transform: "scaleY(-1)" }}>
+            <MandalaCorner size={140} color="#C9A84C" opacity={0.3} />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3, duration: 1 }}
+            className="absolute bottom-0 right-0 pointer-events-none" style={{ transform: "scale(-1,-1)" }}>
+            <MandalaCorner size={140} color="#C9A84C" opacity={0.3} />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}
+            className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+            <DiyaIcon size={32} />
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}
+            className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+            <DiyaIcon size={32} />
+          </motion.div>
+          {/* Mangalam symbol */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none"
+          >
+            <MangalamSymbol size={50} color="#C9A84C" opacity={0.4} />
+          </motion.div>
+          {/* Ornamental top line */}
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="absolute top-12 left-1/2 -translate-x-1/2 w-64 h-px"
+            className="absolute top-20 left-1/2 -translate-x-1/2 w-64 h-px"
             style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
           />
-        )}
-      </AnimatePresence>
+          {/* Lotus divider near bottom */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 1 }}
+            className="absolute bottom-24 left-1/2 -translate-x-1/2 pointer-events-none"
+          >
+            <LotusDivider color="#C9A84C" width={200} opacity={0.4} />
+          </motion.div>
+        </>
+      )}
 
       {/* Main content */}
       <div className="relative z-10 text-center px-6">
         {/* Telugu blessing */}
-        <AnimatePresence>
-          {phase === "full" && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-sm tracking-[0.3em] mb-8"
-              style={{ color: "#C9A84C", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
-            >
-              శుభమస్తు · SHUBHAMASTU
-            </motion.p>
-          )}
-        </AnimatePresence>
+        {phase === "full" && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-sm tracking-[0.3em] mb-8"
+            style={{ color: "#C9A84C", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+          >
+            శుభమస్తు · SHUBHAMASTU
+          </motion.p>
+        )}
 
         {/* Names */}
-        <AnimatePresence>
-          {(phase === "names" || phase === "full") && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h1
-                className="gold-text leading-none"
-                style={{
-                  fontFamily: "'Cinzel', serif",
-                  fontSize: "clamp(3rem, 10vw, 7rem)",
-                  fontWeight: 500,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Rahul
-              </h1>
-              <div
-                className="my-2 text-4xl"
-                style={{ color: "#C9A84C" }}
-              >
-                ♾
-              </div>
-              <h1
-                className="gold-text leading-none"
-                style={{
-                  fontFamily: "'Cinzel', serif",
-                  fontSize: "clamp(3rem, 10vw, 7rem)",
-                  fontWeight: 500,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Harshu
-              </h1>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Tagline */}
-        <AnimatePresence>
-          {phase === "full" && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <p
-                className="mt-8 italic"
-                style={{
-                  color: "#E8D5A3",
-                  fontSize: "clamp(1rem, 3vw, 1.5rem)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 300,
-                  letterSpacing: "0.1em",
-                }}
-              >
-                Two hearts. One forever.
-              </p>
-
-              <div className="section-divider mt-6 mb-6" />
-
-              <p
-                className="tracking-[0.25em] text-sm"
-                style={{
-                  color: "#C9A84C",
-                  fontFamily: "'Lato', sans-serif",
-                  fontWeight: 300,
-                }}
-              >
-                NOVEMBER 2026 · TEXAS
-              </p>
-
-              {/* CTA */}
-              <motion.a
-                href="#events"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-block mt-10 px-8 py-3 text-sm tracking-[0.2em] cursor-pointer"
-                style={{
-                  border: "1px solid #C9A84C",
-                  color: "#C9A84C",
-                  fontFamily: "'Lato', sans-serif",
-                  fontWeight: 300,
-                  textDecoration: "none",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.background = "#C9A84C";
-                  (e.target as HTMLElement).style.color = "#0A0A0A";
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.background = "transparent";
-                  (e.target as HTMLElement).style.color = "#C9A84C";
-                }}
-              >
-                ENTER OUR CELEBRATION
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Bottom ornament */}
-      <AnimatePresence>
-        {phase === "full" && (
+        {(phase === "names" || phase === "full") && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p
-              className="text-xs tracking-[0.3em]"
-              style={{ color: "rgba(201,168,76,0.5)", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+            <h1
+              className="gold-text leading-none"
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "clamp(3rem, 10vw, 7rem)",
+                fontWeight: 500,
+                letterSpacing: "0.05em",
+              }}
             >
-              SCROLL
-            </p>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              className="w-px h-8"
-              style={{ background: "linear-gradient(180deg, #C9A84C, transparent)" }}
-            />
+              Rahul
+            </h1>
+            <div className="my-2 text-4xl" style={{ color: "#C9A84C" }}>♾</div>
+            <h1
+              className="gold-text leading-none"
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "clamp(3rem, 10vw, 7rem)",
+                fontWeight: 500,
+                letterSpacing: "0.05em",
+              }}
+            >
+              Harshu
+            </h1>
           </motion.div>
         )}
-      </AnimatePresence>
 
-      {/* Bottom border */}
-      <AnimatePresence>
+        {/* Tagline + CTA */}
         {phase === "full" && (
           <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
-          />
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <p
+              className="mt-8 italic"
+              style={{
+                color: "#E8D5A3",
+                fontSize: "clamp(1rem, 3vw, 1.5rem)",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 300,
+                letterSpacing: "0.1em",
+              }}
+            >
+              Two hearts. One forever.
+            </p>
+
+            <div className="section-divider mt-6 mb-6" />
+
+            <p
+              className="tracking-[0.25em] text-sm"
+              style={{ color: "#C9A84C", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+            >
+              NOVEMBER 2026 · TEXAS
+            </p>
+
+            <motion.a
+              href="#events"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-block mt-10 px-8 py-3 text-sm tracking-[0.2em] cursor-pointer"
+              style={{
+                border: "1px solid #C9A84C",
+                color: "#C9A84C",
+                fontFamily: "'Lato', sans-serif",
+                fontWeight: 300,
+                textDecoration: "none",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.background = "#C9A84C";
+                (e.target as HTMLElement).style.color = "#0A0A0A";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.background = "transparent";
+                (e.target as HTMLElement).style.color = "#C9A84C";
+              }}
+            >
+              ENTER OUR CELEBRATION
+            </motion.a>
+          </motion.div>
         )}
-      </AnimatePresence>
+      </div>
+
+      {/* Scroll indicator */}
+      {phase === "full" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <p
+            className="text-xs tracking-[0.3em]"
+            style={{ color: "rgba(201,168,76,0.5)", fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+          >
+            SCROLL
+          </p>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className="w-px h-8"
+            style={{ background: "linear-gradient(180deg, #C9A84C, transparent)" }}
+          />
+        </motion.div>
+      )}
+
+      {/* Bottom border */}
+      {phase === "full" && (
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+          className="absolute bottom-0 left-0 right-0 h-px"
+          style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
+        />
+      )}
     </section>
   );
 }

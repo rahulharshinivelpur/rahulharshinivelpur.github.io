@@ -1,8 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { LotusDivider, PaisleyBorder, MandalaCorner } from "./TeluguGraphics";
 
 const dressCodes = [
+  {
+    event: "✨ Sangeeth",
+    theme: "Glamorous Night",
+    instruction: "Festive Indian wear or evening wear. Go bold — this is the party night that kicks off the celebrations!",
+    colors: [
+      { name: "Midnight Navy", hex: "#0D1B4B" },
+      { name: "Champagne", hex: "#D4AF37" },
+      { name: "Emerald", hex: "#004D40" },
+      { name: "Deep Burgundy", hex: "#880E4F" },
+      { name: "Black", hex: "#1A1A1A" },
+    ],
+    avoid: "Casual or overly casual outfits",
+    tip: "Heels & dress shoes recommended — it's a glam night. Thursday Nov 12.",
+  },
+  {
+    event: "💍 Engagement",
+    theme: "Festive & Bright",
+    instruction: "Semi-formal Indian wear. Sarees, lehengas, kurtas welcome. Bright festive colours encouraged.",
+    colors: [
+      { name: "Royal Purple", hex: "#4C1D95" },
+      { name: "Fuchsia", hex: "#E879F9" },
+      { name: "Coral", hex: "#FB7185" },
+      { name: "Teal", hex: "#0D9488" },
+      { name: "Gold", hex: "#C9A84C" },
+    ],
+    avoid: "All-white or all-red (reserved for bride at wedding)",
+    tip: "Noon ceremony on Friday Nov 13 — comfortable yet festive.",
+  },
   {
     event: "🌿 Mehendi",
     theme: "Vibrant & Festive",
@@ -14,7 +43,7 @@ const dressCodes = [
       { name: "Deep Orange", hex: "#E65100" },
     ],
     avoid: "Heavy bridal colours (red, maroon)",
-    tip: "Comfortable flats recommended — lots of dancing!",
+    tip: "Friday night Nov 13 — comfortable flats recommended, lots of dancing!",
   },
   {
     event: "☀️ Haldi",
@@ -27,7 +56,7 @@ const dressCodes = [
       { name: "White", hex: "#FFFFFF" },
     ],
     avoid: "Dark colours (they stain more visibly)",
-    tip: "Wear clothes you're okay ruining — turmeric is forever!",
+    tip: "Saturday noon Nov 14 — wear clothes you're okay ruining, turmeric is forever!",
   },
   {
     event: "🪷 Wedding Ceremony",
@@ -41,21 +70,7 @@ const dressCodes = [
       { name: "Royal Blue", hex: "#1565C0" },
     ],
     avoid: "All-white or all-red (reserved for bride)",
-    tip: "The couple's palette is ivory & gold — complementary colours are perfect.",
-  },
-  {
-    event: "✨ Sangeeth",
-    theme: "Glamorous Night",
-    instruction: "Festive Indian wear or evening wear. Go bold — this is the party night!",
-    colors: [
-      { name: "Midnight Navy", hex: "#0D1B4B" },
-      { name: "Champagne", hex: "#D4AF37" },
-      { name: "Emerald", hex: "#004D40" },
-      { name: "Deep Burgundy", hex: "#880E4F" },
-      { name: "Black", hex: "#1A1A1A" },
-    ],
-    avoid: "Casual or overly casual outfits",
-    tip: "Heels & dress shoes recommended — it's a glam night.",
+    tip: "Sunday noon Nov 15 — the couple's palette is ivory & gold, complementary colours are perfect.",
   },
 ];
 
@@ -70,6 +85,15 @@ export default function DressCodeSection() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
       />
+      <div className="absolute top-1 left-0 right-0 pointer-events-none">
+        <PaisleyBorder color="#C9A84C" opacity={0.15} />
+      </div>
+      <div className="absolute top-0 left-0 pointer-events-none hidden md:block">
+        <MandalaCorner size={90} color="#C9A84C" opacity={0.1} />
+      </div>
+      <div className="absolute top-0 right-0 pointer-events-none hidden md:block" style={{ transform: "scaleX(-1)" }}>
+        <MandalaCorner size={90} color="#C9A84C" opacity={0.1} />
+      </div>
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -98,6 +122,9 @@ export default function DressCodeSection() {
             Dress Code Guide
           </h2>
           <div className="section-divider mt-6 mb-6" />
+          <div className="flex justify-center mb-2">
+            <LotusDivider color="#C9A84C" width={260} opacity={0.45} />
+          </div>
           <p
             className="italic text-lg max-w-xl mx-auto"
             style={{ color: "#5C4A2A", fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}

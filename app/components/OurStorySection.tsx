@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { LotusDivider, KolamBorder, MandalaCorner } from "./TeluguGraphics";
 
 const chapters = [
   {
@@ -49,6 +50,19 @@ export default function OurStorySection() {
         }}
       />
 
+      {/* Kolam border top */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none">
+        <KolamBorder color="#C9A84C" opacity={0.12} />
+      </div>
+
+      {/* Mandala corners */}
+      <div className="absolute top-0 left-0 pointer-events-none hidden md:block">
+        <MandalaCorner size={100} color="#C9A84C" opacity={0.12} />
+      </div>
+      <div className="absolute top-0 right-0 pointer-events-none hidden md:block" style={{ transform: "scaleX(-1)" }}>
+        <MandalaCorner size={100} color="#C9A84C" opacity={0.12} />
+      </div>
+
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -76,6 +90,9 @@ export default function OurStorySection() {
             Our Story
           </h2>
           <div className="section-divider mt-6" />
+          <div className="flex justify-center mt-4">
+            <LotusDivider color="#C9A84C" width={280} opacity={0.5} />
+          </div>
           <p
             className="mt-6 max-w-xl mx-auto italic text-lg leading-relaxed"
             style={{ color: "#5C4A2A", fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}

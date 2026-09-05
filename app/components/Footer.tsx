@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MandalaCorner, LotusDivider, DiyaIcon, KolamBorder } from "./TeluguGraphics";
 
 export default function Footer() {
   return (
@@ -13,6 +14,17 @@ export default function Footer() {
         className="h-px w-full"
         style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
       />
+
+      {/* Kolam decorative border */}
+      <KolamBorder color="#C9A84C" opacity={0.08} />
+
+      {/* Mandala corners */}
+      <div className="absolute top-0 left-0 pointer-events-none hidden md:block">
+        <MandalaCorner size={120} color="#C9A84C" opacity={0.15} />
+      </div>
+      <div className="absolute top-0 right-0 pointer-events-none hidden md:block" style={{ transform: "scaleX(-1)" }}>
+        <MandalaCorner size={120} color="#C9A84C" opacity={0.15} />
+      </div>
 
       {/* Radial glow */}
       <div
@@ -29,15 +41,16 @@ export default function Footer() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="mb-10"
+          className="mb-6 flex items-center justify-center gap-6"
         >
-          <span
-            className="text-5xl"
-            style={{ color: "#C9A84C", opacity: 0.4 }}
-          >
-            ✦
-          </span>
+          <DiyaIcon size={28} />
+          <span style={{ color: "#C9A84C", opacity: 0.4, fontSize: "2rem" }}>✦</span>
+          <DiyaIcon size={28} />
         </motion.div>
+
+        <div className="flex justify-center mb-8">
+          <LotusDivider color="#C9A84C" width={240} opacity={0.4} />
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
