@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  output: "export",      // static HTML export
-  trailingSlash: true,   // needed for GitHub Pages routing
+  output: "export",
+  trailingSlash: true,
   images: {
-    unoptimized: true,   // Next.js image optimization needs a server; disable for static
+    unoptimized: true,
   },
+  // Required for GitHub Pages — site is served at /rahul-harshu-wedding/
+  basePath: isProd ? "/rahul-harshu-wedding" : "",
+  assetPrefix: isProd ? "/rahul-harshu-wedding/" : "",
 };
 
 export default nextConfig;
