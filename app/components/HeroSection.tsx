@@ -87,14 +87,6 @@ export default function HeroSection() {
             className="absolute bottom-0 right-0 pointer-events-none" style={{ transform: "scale(-1,-1)" }}>
             <MandalaCorner size={140} color="#C9A84C" opacity={0.3} />
           </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}
-            className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
-            <DiyaIcon size={32} />
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }}
-            className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
-            <DiyaIcon size={32} />
-          </motion.div>
           {/* Mangalam symbol */}
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
