@@ -1,5 +1,5 @@
 import GlobalNav from "./components/GlobalNav";
-import HeroSection from "./components/HeroSection";
+import InvitationHero from "./components/InvitationHero";
 import CountdownSection from "./components/CountdownSection";
 import OurStorySection from "./components/OurStorySection";
 import EventsSection from "./components/EventsSection";
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main>
       <GlobalNav />
-      <HeroSection />
+      <InvitationHero />
       <CountdownSection />
       <OurStorySection />
       <EventsSection />
